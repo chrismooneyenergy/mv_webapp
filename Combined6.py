@@ -10,7 +10,7 @@ import datetime
 from datetime import timedelta  # Make sure this import is at the top
 
 # --- File Selection ---
-directory_path = r'C:\Users\chris.mooney\PycharmProjects\M&V\AccountsWithData'
+directory_path = 'AccountsWithData'
 file_list = [f for f in os.listdir(directory_path)]
 selected_file = st.selectbox("Select a Customer", file_list)
 file_path = os.path.join(directory_path, selected_file)
