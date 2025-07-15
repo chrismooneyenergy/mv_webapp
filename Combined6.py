@@ -233,19 +233,5 @@ if selected_features and not df_train.empty and not df_predict.empty:
         mime='text/csv'
     )
 
-    # Export to Excel
-    import io
-
-    excel_buffer = io.BytesIO()
-    with pd.ExcelWriter(excel_buffer, engine='xlsxwriter') as writer:
-        export_df.to_excel(writer, index=False, sheet_name='Predictions')
-
-    st.download_button(
-        label="Download Excel",
-        data=excel_buffer.getvalue(),
-        file_name=f"{selected_file.replace('.csv', '')}_predicted.xlsx",
-        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    )
-
 else:
     st.warning("Select at least one variable and ensure data exists for both training and prediction.")
